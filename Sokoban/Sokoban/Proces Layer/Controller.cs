@@ -18,17 +18,18 @@ namespace Sokoban
 			parser = new Parser();
 		}
 
-		public void startGame()
+		public void StartGame()
 		{
 			inputView.WelcomeScreen();
 			inputView.ChooseMaze();
 
 			char choosenMaze = outputView.ReadLine();
 			if (choosenMaze != 's')
-				parser.ParseMaze();
+				parser.ParseMaze(choosenMaze);
 			else
 				Environment.Exit(0);
 
+			inputView.DisplayMaze(parser.Maze);
 
 			Console.ReadLine();
 		}

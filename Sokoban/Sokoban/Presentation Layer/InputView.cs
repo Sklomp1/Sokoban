@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sokoban.Model_Layer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,6 +29,46 @@ namespace Sokoban
 		{
 			Console.WriteLine();
 			Console.WriteLine("Kies een doolhof (1 - 4), s = stop");
+		}
+
+		public void DisplayMaze(Maze maze)
+		{
+			Console.Clear();
+
+			for (int i = 0; i < maze.FieldDoublyDoublyLinkedList.RowFirst.Length; i++)
+			{
+				FieldDoublyDoublyLink item = new FieldDoublyDoublyLink();
+				item = maze.FieldDoublyDoublyLinkedList.RowFirst[i];
+
+				while (item != null)
+				{
+					switch (item.Type)
+					{
+						case "chest":
+							Console.Write("O");
+							break;
+						case "floor":
+							Console.Write(".");
+							break;
+						case "destination":
+							Console.Write("x");
+							break;
+						case "truck":
+							Console.Write("@");
+							break;
+						case "wall":
+							Console.Write("█");
+							break;
+						case "empty":
+							Console.Write(" ");
+							break;
+						default:
+							break;
+					}
+					item = item.Next;
+				}
+				Console.WriteLine();
+			}
 		}
 
 	}
