@@ -21,20 +21,10 @@
       <FileName>Model Layer\Floor.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Sokoban.Game">
-    <Position X="4" Y="4.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AgAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Model Layer\Game.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="maze" />
-    </ShowAsAssociation>
-  </Class>
   <Class Name="Sokoban.Maze" Collapsed="true">
     <Position X="6.5" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model Layer\Maze.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -69,11 +59,10 @@
   <Class Name="Sokoban.Controller">
     <Position X="8.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAEAAAAAAAAAAAAACAAAAACAAAAAAQIAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAACAAAAAAQAAAAAAAAAIAA=</HashCode>
       <FileName>Proces Layer\Controller.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="game" />
       <Field Name="inputView" />
       <Field Name="outputView" />
     </ShowAsAssociation>
@@ -81,7 +70,7 @@
   <Class Name="Sokoban.Parser" Collapsed="true">
     <Position X="5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
       <FileName>Proces Layer\Parser.cs</FileName>
     </TypeIdentifier>
   </Class>

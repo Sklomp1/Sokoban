@@ -9,13 +9,13 @@ namespace Sokoban
 	{
 		private InputView inputView;
 		private OutputView outputView;
-		private Game game;
+		public Parser parser { get; set; }
 
 		public Controller()
 		{
 			inputView = new InputView();
 			outputView = new OutputView();
-			game = new Game();
+			parser = new Parser();
 		}
 
 		public void startGame()
@@ -25,17 +25,12 @@ namespace Sokoban
 
 			char choosenMaze = outputView.ReadLine();
 			if (choosenMaze != 's')
-				parseMaze(choosenMaze);
+				parser.ParseMaze();
 			else
 				Environment.Exit(0);
 
 
 			Console.ReadLine();
-		}
-
-		public void parseMaze(char mazeNumber)
-		{
-
 		}
 	}
 }

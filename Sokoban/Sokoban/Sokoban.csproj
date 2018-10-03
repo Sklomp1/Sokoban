@@ -6,6 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Mazes\" />
+    <Folder Include="Proces Layer\NewFolder\" />
     <Folder Include="Properties\" />
   </ItemGroup>
 

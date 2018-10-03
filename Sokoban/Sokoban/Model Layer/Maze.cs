@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sokoban.Model_Layer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,11 +8,11 @@ namespace Sokoban
 {
 	public class Maze
 	{
-		private List<Field> fields;
+		public FieldDoublyDoublyLinkedList fieldDoublyDoublyLinkedList { get; set; }
 
 		public Maze()
 		{
-			fields = new List<Field>();
+			// generate maze
 		}
 	}
 }
