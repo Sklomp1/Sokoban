@@ -8,6 +8,8 @@ namespace Sokoban.Model_Layer
 	{
 		public FieldDoublyDoublyLink Last { get; set; }
 
+		public FieldDoublyDoublyLink Truck { get; set; }
+
 		public FieldDoublyDoublyLink[] RowFirst { get; set; }
 
 	}

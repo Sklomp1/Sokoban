@@ -28,22 +28,22 @@ namespace Sokoban
 						switch (c)
 						{
 							case '.':
-								Maze.Addfield(new Floor(), row);
+								Maze.AddField(new Floor(), row);
 								break;
 							case '#':
-								Maze.Addfield(new Wall(), row);
+								Maze.AddField(new Wall(), row);
 								break;
 							case 'o':
-								Maze.Addfield(new Chest(), row);
+								Maze.AddField(new Chest(), row);
 								break;
 							case 'x':
-								Maze.Addfield(new Destination(), row);
+								Maze.AddField(new Destination(), row);
 								break;
 							case '@':
-								Maze.Addfield(new Truck(), row);
+								Maze.AddField(new Truck(), row);
 								break;
 							default:
-								Maze.Addfield(new Empty(), row);
+								Maze.AddField(new Empty(), row);
 								break;
 						}
 					}

@@ -30,8 +30,19 @@ namespace Sokoban
 				Environment.Exit(0);
 
 			inputView.DisplayMaze(parser.Maze);
+			Play();
 
 			Console.ReadLine();
 		}
+
+		private void Play()
+		{
+			while (true)
+			{
+				var ch = Console.ReadKey().Key;
+				parser.Maze.SwapFields(ch);
+				inputView.DisplayMaze(parser.Maze);
+			}
+		}		
 	}
 }
