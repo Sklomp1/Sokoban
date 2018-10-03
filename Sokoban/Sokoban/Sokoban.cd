@@ -14,16 +14,6 @@
       <FileName>Model Layer\Destination.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Sokoban.Field">
-    <Position X="10.5" Y="5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAABgAAAAAAA=</HashCode>
-      <FileName>Model Layer\Field.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Field Name="gamePieces" />
-    </ShowAsCollectionAssociation>
-  </Class>
   <Class Name="Sokoban.Floor" Collapsed="true">
     <Position X="5.5" Y="8" Width="1.5" />
     <TypeIdentifier>
@@ -40,13 +30,6 @@
     <ShowAsAssociation>
       <Field Name="maze" />
     </ShowAsAssociation>
-  </Class>
-  <Class Name="Sokoban.GamePiece" Collapsed="true">
-    <Position X="7.75" Y="6.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAA=</HashCode>
-      <FileName>Model Layer\GamePiece.cs</FileName>
-    </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.Maze" Collapsed="true">
     <Position X="6.5" Y="5.25" Width="1.5" />
@@ -107,6 +90,20 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Proces Layer\Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sokoban.Model_Layer.FieldDoublyDoublyLinkedList">
+    <Position X="8.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Model Layer\FieldDoublyDoublyLinkedList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sokoban.Model_Layer.FieldDoublyDoublyLink">
+    <Position X="11.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAIAAAAAAgAAAAAAAAAAAAAAAAAAAQAAAAAAAAI=</HashCode>
+      <FileName>Model Layer\FieldDoublyDoublyLink.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
