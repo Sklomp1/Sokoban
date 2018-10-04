@@ -42,19 +42,23 @@ namespace Sokoban
 
 				while (item != null)
 				{
-					switch (item.Type)
+					switch (item.GamePiece.Type)
 					{
-						case "chest":
-							Console.Write("O");
-							break;
 						case "floor":
-							Console.Write(".");
+							if(item.GamePiece.HasTruck)
+								Console.Write("@");
+							else if(item.GamePiece.HasChest)
+								Console.Write("O");
+							else
+								Console.Write(".");
 							break;
 						case "destination":
-							Console.Write("x");
-							break;
-						case "truck":
-							Console.Write("@");
+							if (item.GamePiece.HasTruck)
+								Console.Write("@");
+							else if (item.GamePiece.HasChest)
+								Console.Write("0");
+							else
+								Console.Write("X");
 							break;
 						case "wall":
 							Console.Write("█");

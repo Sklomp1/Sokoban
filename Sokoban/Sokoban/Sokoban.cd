@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Sokoban.Chest" Collapsed="true">
-    <Position X="3" Y="10.75" Width="1.5" />
+    <Position X="5.25" Y="10.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model Layer\Chest.cs</FileName>
@@ -10,33 +10,33 @@
   <Class Name="Sokoban.Destination" Collapsed="true">
     <Position X="7.5" Y="10.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAQAQAAABAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model Layer\Destination.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.Truck">
-    <Position X="11.5" Y="4.75" Width="1.5" />
+    <Position X="3.25" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAIAAAADAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model Layer\Truck.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.Wall" Collapsed="true">
-    <Position X="12" Y="10.75" Width="1.5" />
+    <Position X="10" Y="10.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAQAQAAABAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model Layer\Wall.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.InputView">
-    <Position X="6.25" Y="0.75" Width="1.5" />
+    <Position X="6.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAgAAAAQAAAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Presentation Layer\InputView.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.OutputView">
-    <Position X="8" Y="0.75" Width="1.5" />
+    <Position X="8.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Presentation Layer\OutputView.cs</FileName>
@@ -51,6 +51,7 @@
     <ShowAsAssociation>
       <Field Name="inputView" />
       <Field Name="outputView" />
+      <Property Name="parser" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Sokoban.Program">
@@ -61,38 +62,83 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.Model_Layer.FieldDoublyDoublyLinkedList">
-    <Position X="8.75" Y="7" Width="1.5" />
+    <Position X="11.25" Y="6.25" Width="1.5" />
+    <AssociationLine Name="RowFirst" Type="Sokoban.Model_Layer.FieldDoublyDoublyLink" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="11.938" Y="7.353" />
+        <Point X="11.938" Y="8.729" />
+        <Point X="14.25" Y="8.729" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAACAAAAIAA=</HashCode>
       <FileName>Model Layer\FieldDoublyDoublyLinkedList.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Last" />
+      <Property Name="RowFirst" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="Sokoban.Floor" Collapsed="true">
-    <Position X="5.25" Y="10.75" Width="1.5" />
+    <Position X="3" Y="10.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAQAQAAABAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model Layer\Floor.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.Model_Layer.FieldDoublyDoublyLink">
-    <Position X="11.5" Y="7.75" Width="1.5" />
+    <Position X="14.25" Y="8" Width="1.5" />
+    <AssociationLine Name="GamePiece" Type="Sokoban.Model_Layer.GamePiece" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="14.25" Y="9.115" />
+        <Point X="13.875" Y="9.115" />
+        <Point X="13.875" Y="9.75" />
+        <Point X="7.75" Y="9.75" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AgAAAAIAAAAAAgAAAAAAAAAAAAAAAAAAAQAAAAAAAAI=</HashCode>
+      <HashCode>AgAAAAIAAAAACgAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
       <FileName>Model Layer\FieldDoublyDoublyLink.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="GamePiece" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="Sokoban.Parser">
     <Position X="4.75" Y="2.75" Width="1.5" />
+    <AssociationLine Name="Maze" Type="Sokoban.Maze" ManuallyRouted="true">
+      <Path>
+        <Point X="5.531" Y="3.853" />
+        <Point X="5.531" Y="4.112" />
+        <Point X="5.876" Y="4.112" />
+        <Point X="5.876" Y="5.792" />
+        <Point X="7.25" Y="5.792" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIABAA=</HashCode>
       <FileName>Proces Layer\Parser.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Maze" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="Sokoban.Maze">
-    <Position X="5.75" Y="5.25" Width="1.5" />
+    <Position X="7.25" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAACEAAEAAAEAAAAAAAIEAEAAgACAAAAAAgAAAAA=</HashCode>
+      <HashCode>AAAAAAAEAEEACAAAAAAAAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model Layer\Maze.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="FieldDoublyDoublyLinkedList" />
+      <Property Name="Truck" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Sokoban.Model_Layer.GamePiece" Collapsed="true">
+    <Position X="6.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAQAQAAABAAAAAAIAABAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Model Layer\GamePiece.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

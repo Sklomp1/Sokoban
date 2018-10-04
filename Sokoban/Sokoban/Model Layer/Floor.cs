@@ -6,14 +6,31 @@ using System.Text;
 
 namespace Sokoban
 {
-	public class Floor : FieldDoublyDoublyLink
+	public class Floor : GamePiece
 	{
-		public bool HasTruck { get; set; }
-
-		public Floor(string type, bool isTruck)
+		public Floor()
 		{
-			Type = type;
-			HasTruck = isTruck;
+			Type = "floor";
+		}
+
+		public override void RemoveChest()
+		{
+			HasChest = false;
+		}
+
+		public override void RemoveTruck()
+		{
+			HasTruck = false;
+		}
+
+		public override void SetChest()
+		{
+			HasChest = true;
+		}
+
+		public override void SetTruck()
+		{
+			HasTruck = true;
 		}
 	}
 }

@@ -6,11 +6,11 @@ using System.Text;
 
 namespace Sokoban
 {
-	public class Chest : FieldDoublyDoublyLink
+	public class Chest
 	{
 		public Chest()
 		{
-			Type = "chest";
+
 		}
 	}
 }

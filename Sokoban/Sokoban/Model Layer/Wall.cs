@@ -6,12 +6,31 @@ using System.Text;
 
 namespace Sokoban
 {
-	public class Wall : FieldDoublyDoublyLink
+	public class Wall : GamePiece
 	{
 		public Wall()
 		{
 			Type = "wall";
 		}
 
+		public override void RemoveChest()
+		{
+			throw new NotImplementedException();
+		}
+
+		public override void RemoveTruck()
+		{
+			throw new NotImplementedException();
+		}
+
+		public override void SetChest()
+		{
+			throw new NotImplementedException();
+		}
+
+		public override void SetTruck()
+		{
+			throw new NotImplementedException();
+		}
 	}
 }

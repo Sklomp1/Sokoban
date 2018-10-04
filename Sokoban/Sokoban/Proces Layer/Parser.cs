@@ -25,31 +25,38 @@ namespace Sokoban
 					row++;
 					foreach (char c in line)
 					{
+						FieldDoublyDoublyLink fieldDoublyDoublyLink = new FieldDoublyDoublyLink();
 						switch (c)
 						{
 							case '.':
-								Maze.AddField(new Floor("floor", false), row);
+								fieldDoublyDoublyLink.GamePiece = new Floor();
+								Maze.AddField(fieldDoublyDoublyLink, row);
 								break;
 							case '#':
-								Maze.AddField(new Wall(), row);
+								fieldDoublyDoublyLink.GamePiece = new Wall();
+								Maze.AddField(fieldDoublyDoublyLink, row);
+
 								break;
 							case 'o':
-								Maze.AddField(new Chest(), row);
+								fieldDoublyDoublyLink.GamePiece = new Floor();
+								fieldDoublyDoublyLink.GamePiece.SetChest();
+
+								Maze.AddField(fieldDoublyDoublyLink, row);
 								break;
 							case 'x':
-								Maze.AddField(new Destination(), row);
+								fieldDoublyDoublyLink.GamePiece = new Destination();
+								Maze.AddField(fieldDoublyDoublyLink, row);
 								break;
 							case '@':
-								Floor floor = new Floor("truck", true);
-
-								Truck truck = new Truck
-								{
-									Current = floor
-								};
-								Maze.AddField(floor, row);
+								fieldDoublyDoublyLink.GamePiece = new Floor();
+								fieldDoublyDoublyLink.GamePiece.SetTruck();
+								Maze.AddField(fieldDoublyDoublyLink, row);
+								Truck truck = new Truck();
+								Maze.AddTruck(new Truck(), fieldDoublyDoublyLink);
 								break;
 							default:
-								Maze.AddField(new Empty(), row);
+								fieldDoublyDoublyLink.GamePiece = new Empty();
+								Maze.AddField(fieldDoublyDoublyLink, row);
 								break;
 						}
 					}
