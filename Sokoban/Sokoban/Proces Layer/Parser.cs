@@ -28,7 +28,7 @@ namespace Sokoban
 						switch (c)
 						{
 							case '.':
-								Maze.AddField(new Floor(), row);
+								Maze.AddField(new Floor("floor", false), row);
 								break;
 							case '#':
 								Maze.AddField(new Wall(), row);
@@ -40,7 +40,13 @@ namespace Sokoban
 								Maze.AddField(new Destination(), row);
 								break;
 							case '@':
-								Maze.AddField(new Truck(), row);
+								Floor floor = new Floor("truck", true);
+
+								Truck truck = new Truck
+								{
+									Current = floor
+								};
+								Maze.AddField(floor, row);
 								break;
 							default:
 								Maze.AddField(new Empty(), row);

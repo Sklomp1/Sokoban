@@ -6,12 +6,14 @@ using System.Text;
 
 namespace Sokoban
 {
-	public class Truck : FieldDoublyDoublyLink
+	public class Truck 
 	{
+		public FieldDoublyDoublyLink Current { get; set; }
 
 		public Truck()
 		{
-			Type = "truck";
+			//Type = "truck";
+			//HasTruck = true;
 		}
 
 		public void MoveChest()

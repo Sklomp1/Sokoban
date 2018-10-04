@@ -6,8 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Proces Layer\NewFolder\**" />
+    <EmbeddedResource Remove="Proces Layer\NewFolder\**" />
+    <None Remove="Proces Layer\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Mazes\" />
-    <Folder Include="Proces Layer\NewFolder\" />
     <Folder Include="Properties\" />
   </ItemGroup>
 

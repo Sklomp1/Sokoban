@@ -8,9 +8,12 @@ namespace Sokoban
 {
 	public class Floor : FieldDoublyDoublyLink
 	{
-		public Floor()
+		public bool HasTruck { get; set; }
+
+		public Floor(string type, bool isTruck)
 		{
-			Type = "floor";
+			Type = type;
+			HasTruck = isTruck;
 		}
 	}
 }
