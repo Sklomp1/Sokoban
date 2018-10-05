@@ -25,19 +25,24 @@ namespace Sokoban
 			outputView.WelcomeScreen();
 			outputView.ChooseMaze();
 
-			maze = parser.ParseMaze(inputView.ReadLine());
+			ParseMaze();
 			ShowMaze();
 
 			Play();
 		}
 
+		private void ParseMaze()
+		{
+			while(maze == null)
+				maze = parser.ParseMaze(inputView.ReadLine());
+		}
+
 		private void ShowMaze()
 		{
-			Console.Clear();
-
-			for (int i = 0; i < maze.FieldDoublyDoublyLinkedList.RowFirst.Length; i++)
+			string[] values = new string[maze.FieldDoublyDoublyLinkedList.RowFirst.Length];
+			for (int i = 0; i < values.Length; i++)
 			{
-				string value = "";
+
 				FieldDoublyDoublyLink item = new FieldDoublyDoublyLink();
 				item = maze.FieldDoublyDoublyLinkedList.RowFirst[i];
 
@@ -47,34 +52,49 @@ namespace Sokoban
 					{
 						case "floor":
 							if (item.Floor.Truck != null)
-								value += '@';
+								values[i] += '@';
 							else if (item.Floor.Chest != null)
-								value += 'O';
+								values[i] += 'O';
 							else
-								value += '.';
+								values[i] += '.';
 							break;
 						case "destination":
 							if (item.Floor.Truck != null)
-								value += '@';
+								values[i] += '@';
 							else if (item.Floor.Chest != null)
-								value += '0';
+								values[i] += '0';
 							else
-								value += 'X';
+								values[i] += 'X';
 							break;
 						case "wall":
-							value += '█';
+							values[i] += '█';
+							break;
+						case "freefall":
+							if (item.Floor.Truck != null)
+								values[i] += '@';
+							else if (item.Floor.Chest != null)
+								values[i] += 'O';
+							else
+								values[i] += ' ';
+							break;
+						case "pitfall":
+							if (item.Floor.Truck != null)
+								values[i] += '@';
+							else if (item.Floor.Chest != null)
+								values[i] += 'O';
+							else
+								values[i] += '~';
 							break;
 						case "empty":
-							value += ' ';
+							values[i] += ' ';
 							break;
 						default:
 							break;
 					}
 					item = item.Next;
 				}
-				Console.WriteLine(value);
 			}
-
+			outputView.DisplayMaze(values);
 		}
 
 		private void Play()

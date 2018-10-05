@@ -11,12 +11,12 @@ namespace Sokoban
 
 		public char ReadLine()
 		{
-			return Console.ReadKey().KeyChar;
+			return Console.ReadKey(true).KeyChar;
 		}
 
 		public ConsoleKey ReadKey()
 		{
-			return Console.ReadKey().Key;
+			return Console.ReadKey(true).Key;
 		}
 	}
 }

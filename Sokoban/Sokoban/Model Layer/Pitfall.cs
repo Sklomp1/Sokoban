@@ -1,18 +1,17 @@
-﻿using Sokoban.Model_Layer;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
-namespace Sokoban
+namespace Sokoban.Model_Layer
 {
-	public class Destination : Floor
+	public class Pitfall : Floor
 	{
-		public Destination()
-		{
-			Type = "destination";
-		}
+		int lives = 3;
 
+		public Pitfall()
+		{
+			Type = "pitfall";
+		}
 		public override bool CanMoveTo()
 		{
 			return true;
@@ -20,7 +19,18 @@ namespace Sokoban
 
 		public override void PlaceChest(Chest chest)
 		{
-			Chest = chest;
+			if (lives <= 0)
+			{
+				Chest = null;
+			}
+			else
+			{
+				Chest = chest;
+				if (--lives <= 0)
+				{
+					Type = "freefall";
+				}
+			}
 		}
 
 		public override void PlaceTruck(Truck truck)

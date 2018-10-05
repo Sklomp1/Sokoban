@@ -17,5 +17,25 @@ namespace Sokoban
 		{
 			return true;
 		}
+
+		public override void PlaceChest(Chest chest)
+		{
+			Chest = chest;
+		}
+
+		public override void PlaceTruck(Truck truck)
+		{
+			Truck = truck;
+		}
+
+		public override void RemoveChest()
+		{
+			Chest = null;
+		}
+
+		public override void RemoveTruck()
+		{
+			Truck = null;
+		}
 	}
 }

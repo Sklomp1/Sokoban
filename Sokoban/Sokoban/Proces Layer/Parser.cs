@@ -23,6 +23,8 @@ namespace Sokoban
 		{
 			try
 			{
+				if (mazeNumber == 's')
+					Environment.Exit(0);
 				string[] lines = File.ReadAllLines("../../../Mazes/doolhof" + mazeNumber + ".txt");
 				Maze = new Maze(lines.Count());
 
@@ -43,7 +45,6 @@ namespace Sokoban
 							case '#':
 								fieldDoublyDoublyLink.Floor = new Wall();
 								Maze.AddField(fieldDoublyDoublyLink, row);
-
 								break;
 							case 'o':
 								Chest chest = new Chest();
@@ -56,6 +57,10 @@ namespace Sokoban
 							case 'x':
 								Maze.Destinations++;
 								fieldDoublyDoublyLink.Floor = new Destination();
+								Maze.AddField(fieldDoublyDoublyLink, row);
+								break;
+							case '~':
+								fieldDoublyDoublyLink.Floor = new Pitfall();
 								Maze.AddField(fieldDoublyDoublyLink, row);
 								break;
 							case '@':
@@ -75,9 +80,10 @@ namespace Sokoban
 					}
 				}
 			}
-			catch (FileNotFoundException e)
+			catch
 			{
-				outputView.FileNotFound(e.FileName);
+				outputView.FileNotFound();
+				outputView.ChooseMaze();
 			}
 			return Maze;
 		}

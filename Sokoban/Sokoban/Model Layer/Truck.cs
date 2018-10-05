@@ -38,15 +38,15 @@ namespace Sokoban
 
 				if (nextField.Floor.Chest == null)
 				{
-					nextField.Floor.Truck = this;
-					Current.Floor.Truck = null;
+					nextField.Floor.PlaceTruck(this);
+					Current.Floor.RemoveTruck();
 					Current = nextField;
 				}
 			}
 			else
 			{
-				nextField.Floor.Truck = this;
-				Current.Floor.Truck = null;
+				nextField.Floor.PlaceTruck(this);
+				Current.Floor.RemoveTruck();
 				Current = nextField;
 			}
 		}

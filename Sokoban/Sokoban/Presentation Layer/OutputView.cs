@@ -28,14 +28,28 @@ namespace Sokoban
 		public void ChooseMaze()
 		{
 			Console.WriteLine();
-			Console.WriteLine("Kies een doolhof (1 - 4), s = stop");
+			Console.WriteLine("Kies een doolhof (1 - 6), s = stop");
 		}
 
-		public void FileNotFound(string fileName)
+		public void FileNotFound()
 		{
-			Console.WriteLine(" Filename not found: " + fileName);
-			Console.ReadLine();
-			Environment.Exit(0);
+			Console.WriteLine("Welk doolhof?");
+		}
+
+		public void DisplayMaze(string[] values)
+		{
+			Console.Clear();
+			Console.WriteLine("┌─────────┐");
+			Console.WriteLine("│ Sokoban │");
+			Console.WriteLine("└─────────┘");
+			Console.WriteLine();
+			Console.WriteLine("──────────────────────────────────────────────────────────────────────────");
+			foreach (string l in values)
+			{
+				Console.WriteLine(l);
+			}
+			Console.WriteLine("──────────────────────────────────────────────────────────────────────────");
+			Console.WriteLine("> Gebruik pijltjestoetsen ");
 		}
 	}
 }

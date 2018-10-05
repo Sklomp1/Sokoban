@@ -33,8 +33,8 @@ namespace Sokoban
 			if (!nextField.Floor.CanMoveTo()) return;
 			if (nextField.Floor.Chest != null) return;
 
-			nextField.Floor.Chest = this;
-			Current.Floor.Chest  = null;
+			nextField.Floor.PlaceChest(this);
+			Current.Floor.RemoveChest();
 			Current = nextField;
 		}
 	}
