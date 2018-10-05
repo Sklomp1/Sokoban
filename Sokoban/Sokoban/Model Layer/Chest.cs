@@ -6,11 +6,36 @@ using System.Text;
 
 namespace Sokoban
 {
-	public class Chest
+	public class Chest : MazePiece
 	{
-		public Chest()
+		public override void Move(ConsoleKey ck)
 		{
+			FieldDoublyDoublyLink nextField;
 
+			switch (ck)
+			{
+				case ConsoleKey.UpArrow:
+					nextField = Current.Up;
+					break;
+				case ConsoleKey.DownArrow:
+					nextField = Current.Down;
+					break;
+				case ConsoleKey.LeftArrow:
+					nextField = Current.Previous;
+					break;
+				case ConsoleKey.RightArrow:
+					nextField = Current.Next;
+					break;
+				default:
+					return;
+			}
+
+			if (!nextField.Floor.CanMoveTo()) return;
+			if (nextField.Floor.Chest != null) return;
+
+			nextField.Floor.Chest = this;
+			Current.Floor.Chest  = null;
+			Current = nextField;
 		}
 	}
 }

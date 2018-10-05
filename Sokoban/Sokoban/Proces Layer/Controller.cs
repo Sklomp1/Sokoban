@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sokoban.Model_Layer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,8 @@ namespace Sokoban
 	{
 		private InputView inputView;
 		private OutputView outputView;
-		public Parser parser { get; set; }
+		private Parser parser;
+		private Maze maze;
 
 		public Controller()
 		{
@@ -20,29 +22,81 @@ namespace Sokoban
 
 		public void StartGame()
 		{
-			inputView.WelcomeScreen();
-			inputView.ChooseMaze();
+			outputView.WelcomeScreen();
+			outputView.ChooseMaze();
 
-			char choosenMaze = outputView.ReadLine();
-			if (choosenMaze != 's')
-				parser.ParseMaze(choosenMaze);
-			else
-				Environment.Exit(0);
+			maze = parser.ParseMaze(inputView.ReadLine());
+			ShowMaze();
 
-			inputView.DisplayMaze(parser.Maze);
 			Play();
+		}
 
-			Console.ReadLine();
+		private void ShowMaze()
+		{
+			Console.Clear();
+
+			for (int i = 0; i < maze.FieldDoublyDoublyLinkedList.RowFirst.Length; i++)
+			{
+				string value = "";
+				FieldDoublyDoublyLink item = new FieldDoublyDoublyLink();
+				item = maze.FieldDoublyDoublyLinkedList.RowFirst[i];
+
+				while (item != null)
+				{
+					switch (item.Floor.Type)
+					{
+						case "floor":
+							if (item.Floor.Truck != null)
+								value += '@';
+							else if (item.Floor.Chest != null)
+								value += 'O';
+							else
+								value += '.';
+							break;
+						case "destination":
+							if (item.Floor.Truck != null)
+								value += '@';
+							else if (item.Floor.Chest != null)
+								value += '0';
+							else
+								value += 'X';
+							break;
+						case "wall":
+							value += '█';
+							break;
+						case "empty":
+							value += ' ';
+							break;
+						default:
+							break;
+					}
+					item = item.Next;
+				}
+				Console.WriteLine(value);
+			}
+
 		}
 
 		private void Play()
 		{
-			while (true)
+			bool play = true;
+			while (play)
 			{
-				var ch = Console.ReadKey().Key;
-				parser.Maze.SwapFields(ch);
-				inputView.DisplayMaze(parser.Maze);
+				parser.Maze.MoveTruck(inputView.ReadKey());
+				ShowMaze();
+				play = CheckWinner();
 			}
-		}		
+			Console.ReadLine();
+		}
+
+		private bool CheckWinner()
+		{
+			if (parser.Maze.Isfinished())
+			{
+				Console.WriteLine("You win the game!");
+				return false;
+			}
+			return true;
+		}
 	}
 }

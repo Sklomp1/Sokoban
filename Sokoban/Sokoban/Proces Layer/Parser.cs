@@ -11,7 +11,15 @@ namespace Sokoban
 	{
 		public Maze Maze { get; set; }
 
-		public void ParseMaze(char mazeNumber)
+		public int Destinations { get; set; }
+
+		private OutputView outputView;
+
+		public Parser()
+		{
+			outputView = new OutputView();
+		}
+		public Maze ParseMaze(char mazeNumber)
 		{
 			try
 			{
@@ -29,33 +37,38 @@ namespace Sokoban
 						switch (c)
 						{
 							case '.':
-								fieldDoublyDoublyLink.GamePiece = new Floor();
+								fieldDoublyDoublyLink.Floor = new Normal();
 								Maze.AddField(fieldDoublyDoublyLink, row);
 								break;
 							case '#':
-								fieldDoublyDoublyLink.GamePiece = new Wall();
+								fieldDoublyDoublyLink.Floor = new Wall();
 								Maze.AddField(fieldDoublyDoublyLink, row);
 
 								break;
 							case 'o':
-								fieldDoublyDoublyLink.GamePiece = new Floor();
-								fieldDoublyDoublyLink.GamePiece.SetChest();
-
+								Chest chest = new Chest();
+								fieldDoublyDoublyLink.Floor = new Normal();
+								fieldDoublyDoublyLink.Floor.Chest = chest;
 								Maze.AddField(fieldDoublyDoublyLink, row);
+								chest.Current = fieldDoublyDoublyLink;
+
 								break;
 							case 'x':
-								fieldDoublyDoublyLink.GamePiece = new Destination();
+								Maze.Destinations++;
+								fieldDoublyDoublyLink.Floor = new Destination();
 								Maze.AddField(fieldDoublyDoublyLink, row);
 								break;
 							case '@':
-								fieldDoublyDoublyLink.GamePiece = new Floor();
-								fieldDoublyDoublyLink.GamePiece.SetTruck();
-								Maze.AddField(fieldDoublyDoublyLink, row);
 								Truck truck = new Truck();
+
+								fieldDoublyDoublyLink.Floor = new Normal();
+								fieldDoublyDoublyLink.Floor.Truck = truck;
+								Maze.AddField(fieldDoublyDoublyLink, row);
+
 								Maze.AddTruck(new Truck(), fieldDoublyDoublyLink);
 								break;
 							default:
-								fieldDoublyDoublyLink.GamePiece = new Empty();
+								fieldDoublyDoublyLink.Floor = new Empty();
 								Maze.AddField(fieldDoublyDoublyLink, row);
 								break;
 						}
@@ -64,10 +77,9 @@ namespace Sokoban
 			}
 			catch (FileNotFoundException e)
 			{
-				Console.WriteLine("Filename not found: " + e.FileName);
-				Console.ReadLine();
-				Environment.Exit(0);
+				outputView.FileNotFound(e.FileName);
 			}
+			return Maze;
 		}
 	}
 }

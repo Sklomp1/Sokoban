@@ -1,36 +1,16 @@
-﻿using Sokoban.Model_Layer;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
-namespace Sokoban
+namespace Sokoban.Model_Layer
 {
-	public class Floor : GamePiece
+	public abstract class Floor
 	{
-		public Floor()
-		{
-			Type = "floor";
-		}
+		public string Type { get; set; }
 
-		public override void RemoveChest()
-		{
-			HasChest = false;
-		}
+		public Truck Truck { get; set; }
+		public Chest Chest { get; set; }
 
-		public override void RemoveTruck()
-		{
-			HasTruck = false;
-		}
-
-		public override void SetChest()
-		{
-			HasChest = true;
-		}
-
-		public override void SetTruck()
-		{
-			HasTruck = true;
-		}
+		abstract public bool CanMoveTo();
 	}
 }

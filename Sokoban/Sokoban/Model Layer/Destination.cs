@@ -6,31 +6,16 @@ using System.Text;
 
 namespace Sokoban
 {
-	public class Destination : GamePiece
+	public class Destination : Floor
 	{
 		public Destination()
 		{
 			Type = "destination";
 		}
 
-		public override void RemoveChest()
+		public override bool CanMoveTo()
 		{
-			HasChest = false;
-		}
-
-		public override void RemoveTruck()
-		{
-			HasTruck = false;
-		}
-
-		public override void SetChest()
-		{
-			HasChest = true;
-		}
-
-		public override void SetTruck()
-		{
-			HasTruck = true;
+			return true;
 		}
 	}
 }

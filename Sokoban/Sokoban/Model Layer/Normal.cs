@@ -6,16 +6,16 @@ using System.Text;
 
 namespace Sokoban
 {
-	public class Wall : Floor
+	public class Normal : Floor
 	{
-		public Wall()
+		public Normal()
 		{
-			Type = "wall";
+			Type = "floor";
 		}
 
 		public override bool CanMoveTo()
 		{
-			return false;
+			return true;
 		}
 	}
 }

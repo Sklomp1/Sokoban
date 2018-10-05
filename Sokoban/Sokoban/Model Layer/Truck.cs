@@ -6,23 +6,49 @@ using System.Text;
 
 namespace Sokoban
 {
-	public class Truck
+	public class Truck : MazePiece
 	{
-		public FieldDoublyDoublyLink Current { get; set; }
-
-		public Truck()
+		public override void Move(ConsoleKey ck)
 		{
+			FieldDoublyDoublyLink nextField;
 
-		}
+			switch (ck)
+			{
+				case ConsoleKey.UpArrow:
+					nextField = Current.Up;
+					break;
+				case ConsoleKey.DownArrow:
+					nextField = Current.Down;
+					break;
+				case ConsoleKey.LeftArrow:
+					nextField = Current.Previous;
+					break;
+				case ConsoleKey.RightArrow:
+					nextField = Current.Next;
+					break;
+				default:
+					return;
+			}
 
-		public void MoveChest()
-		{
-			throw new System.NotImplementedException();
-		}
+			if (!nextField.Floor.CanMoveTo()) return;
 
-		public void MoveTruck()
-		{
-			throw new System.NotImplementedException();
+			if (nextField.Floor.Chest != null)
+			{
+				nextField.Floor.Chest.Move(ck);
+
+				if (nextField.Floor.Chest == null)
+				{
+					nextField.Floor.Truck = this;
+					Current.Floor.Truck = null;
+					Current = nextField;
+				}
+			}
+			else
+			{
+				nextField.Floor.Truck = this;
+				Current.Floor.Truck = null;
+				Current = nextField;
+			}
 		}
 	}
 }
