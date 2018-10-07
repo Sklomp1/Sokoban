@@ -70,7 +70,16 @@ namespace Sokoban
 								fieldDoublyDoublyLink.Floor.Truck = truck;
 								Maze.AddField(fieldDoublyDoublyLink, row);
 
-								Maze.AddTruck(new Truck(), fieldDoublyDoublyLink);
+								Maze.AddTruck(truck, fieldDoublyDoublyLink);
+								break;
+							case '$':
+								Employee employee = new Employee();
+
+								fieldDoublyDoublyLink.Floor = new Normal();
+								fieldDoublyDoublyLink.Floor.Employee = employee;
+								Maze.AddField(fieldDoublyDoublyLink, row);
+
+								Maze.AddEmployee(employee, fieldDoublyDoublyLink);
 								break;
 							default:
 								fieldDoublyDoublyLink.Floor = new Empty();

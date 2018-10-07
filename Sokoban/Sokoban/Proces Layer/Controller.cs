@@ -55,6 +55,8 @@ namespace Sokoban
 								values[i] += '@';
 							else if (item.Floor.Chest != null)
 								values[i] += 'O';
+							else if (item.Floor.Employee != null)
+								values[i] += item.Floor.Employee.Type;
 							else
 								values[i] += '.';
 							break;
@@ -63,6 +65,8 @@ namespace Sokoban
 								values[i] += '@';
 							else if (item.Floor.Chest != null)
 								values[i] += '0';
+							else if (item.Floor.Employee != null)
+								values[i] += item.Floor.Employee.Type;
 							else
 								values[i] += 'X';
 							break;
@@ -74,6 +78,8 @@ namespace Sokoban
 								values[i] += '@';
 							else if (item.Floor.Chest != null)
 								values[i] += 'O';
+							else if (item.Floor.Employee != null)
+								values[i] += item.Floor.Employee.Type;
 							else
 								values[i] += ' ';
 							break;
@@ -82,6 +88,8 @@ namespace Sokoban
 								values[i] += '@';
 							else if (item.Floor.Chest != null)
 								values[i] += 'O';
+							else if (item.Floor.Employee != null)
+								values[i] += item.Floor.Employee.Type;
 							else
 								values[i] += '~';
 							break;
@@ -102,7 +110,7 @@ namespace Sokoban
 			bool play = true;
 			while (play)
 			{
-				parser.Maze.MoveTruck(inputView.ReadKey());
+				maze.MoveTruck(inputView.ReadKey());
 				ShowMaze();
 				play = CheckWinner();
 			}

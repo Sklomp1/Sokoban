@@ -20,12 +20,22 @@ namespace Sokoban.Model_Layer
 			throw new NotImplementedException();
 		}
 
+		public override void PlaceEmployee(Employee employee)
+		{
+			throw new NotImplementedException();
+		}
+
 		public override void PlaceTruck(Truck truck)
 		{
 			throw new NotImplementedException();
 		}
 
 		public override void RemoveChest()
+		{
+			throw new NotImplementedException();
+		}
+
+		public override void RemoveEmployee()
 		{
 			throw new NotImplementedException();
 		}

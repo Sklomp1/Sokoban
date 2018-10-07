@@ -30,7 +30,7 @@ namespace Sokoban
 					return;
 			}
 
-			if (!nextField.Floor.CanMoveTo()) return;
+			if (!nextField.Floor.CanMoveTo() || nextField.Floor.Employee != null) return;
 
 			if (nextField.Floor.Chest != null)
 			{

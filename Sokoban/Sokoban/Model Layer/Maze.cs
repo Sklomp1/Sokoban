@@ -11,6 +11,9 @@ namespace Sokoban
 		public FieldDoublyDoublyLinkedList FieldDoublyDoublyLinkedList { get; set; }
 
 		public Truck Truck { get; set; }
+		public Employee Employee { get; set; }
+
+
 
 		public int Destinations { get; set; }
 
@@ -23,6 +26,8 @@ namespace Sokoban
 		public void MoveTruck(ConsoleKey ck)
 		{
 			Truck.Move(ck);
+			if(Employee != null)
+				Employee.Move(ck);
 		}
 
 		public bool Isfinished()
@@ -48,6 +53,12 @@ namespace Sokoban
 		{
 			Truck = truck;
 			truck.Current = field;
+		}
+
+		public void AddEmployee(Employee employee, FieldDoublyDoublyLink field)
+		{
+			Employee = employee;
+			employee.Current = field;
 		}
 
 		public void AddField(FieldDoublyDoublyLink fieldType, int row)

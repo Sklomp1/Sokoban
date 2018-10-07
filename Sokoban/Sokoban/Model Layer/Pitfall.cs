@@ -33,6 +33,11 @@ namespace Sokoban.Model_Layer
 			}
 		}
 
+		public override void PlaceEmployee(Employee employee)
+		{
+			Employee = employee;
+		}
+
 		public override void PlaceTruck(Truck truck)
 		{
 			Truck = truck;
@@ -41,6 +46,11 @@ namespace Sokoban.Model_Layer
 		public override void RemoveChest()
 		{
 			Chest = null;
+		}
+
+		public override void RemoveEmployee()
+		{
+			Employee = null;
 		}
 
 		public override void RemoveTruck()
