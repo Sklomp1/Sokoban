@@ -25,9 +25,12 @@ namespace Sokoban
 
 		public void MoveTruck(ConsoleKey ck)
 		{
-			Truck.Move(ck);
-			if(Employee != null)
-				Employee.Move(ck);
+			if (ck == ConsoleKey.RightArrow || ck == ConsoleKey.LeftArrow || ck == ConsoleKey.DownArrow || ck == ConsoleKey.UpArrow)
+			{
+				Truck.Move(ck);
+				if (Employee != null)
+					Employee.Move(ck);
+			}
 		}
 
 		public bool Isfinished()
